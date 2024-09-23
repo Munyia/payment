@@ -38,8 +38,8 @@ function App() {
 
   return (
     <div className='bg-black font-[verdana] flex flex-col md:flex-row overflow-auto'>
-  <div className="bg-pry px-5 pt-[15%] justify-center m-auto text-center w-full md:w-1/4">
-    <div className="w-full m-auto bg-pry text-center py-5 rounded-3xl dark:bg-gray-900">
+  <div className="bg-pry px-5 h-screen items-center justify-center m-auto text-center w-full md:w-1/4">
+    <div className="w-full m-auto bg-pry text-center justify-center items-center py-5 rounded-3xl dark:bg-gray-900">
       <Carousel autoslide={true} autoslideinterval={5000} showDots={false}>
         {payment.map((payment) => (
           <div
