@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const TransactionDetails = ({ paymentMethod, amountPaid, accountInfo, cryptoWallet, userContact }) => {
   return (
-    <div className="flex flex-col justify-center items-center p-6 rounded-lg bg-white shadow-lg">
+    <div className="flex flex-col justify-center items-center p-6 rounded-lg bg-white shadow-lg w-full max-w-md overflow-auto px-6 sm:px-8">
       <h1 className="text-2xl font-bold mb-4">Payment Successful</h1>
       <p className="text-lg mb-2">Amount Paid: <span className="font-semibold">£{amountPaid}</span></p>
 

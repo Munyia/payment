@@ -27,8 +27,8 @@ function Timer({ onTimeout }) {
 
   return (
     <div className="text-center text-white text-lg font-bold mt-4 bg-dB p-2 rounded-2xl shadow-lg">
-    Time Left: <span className="text-red-600">{formatTime(timeLeft)}</span>
-  </div>
+      Time Left: <span className="text-red-600">{formatTime(timeLeft)}</span>
+    </div>
   );
 }
 
@@ -42,13 +42,13 @@ const CardPayment = () => {
   };
 
   return (
-    <section className="add-card page flex flex-col items-center justify-center min-h-screen bg-dB">
+    <section className="add-card page flex flex-col items-center justify-center min-h-screen bg-dB p-6 md:p-12 lg:p-16">
       {!isTimeout ? (
         <>
           {/* Timer displayed outside the form */}
           <Timer onTimeout={handleTimeout} />
 
-          <form className="bg-gray-800 shadow-lg rounded-2xl p-6 flex flex-col gap-4 w-80 mt-8">
+          <form className="bg-gray-800 shadow-lg rounded-2xl p-6 flex flex-col gap-4 max-w-md w-full mt-8">
             <label htmlFor="name" className="flex flex-col gap-1">
               <span className="text-gray-400 text-sm font-semibold">Card holder full name</span>
               <input
@@ -96,7 +96,7 @@ const CardPayment = () => {
 
             <Link
               to={'/success'}
-              className="rounded-full py-2 px-4 bg-dB mb-3 text-white text-center hover:bg-pry transition duration-200"
+              className="rounded-full py-2 px-4 bg-dB text-white text-center hover:bg-pry transition duration-200"
             >
               Confirm Payment
             </Link>

@@ -25,21 +25,6 @@ function Timer({ onTimeout }) {
       .padStart(2, '0')}`;
   };
 
-  const navigate = useNavigate();
-
-  const handlePaymentSuccess = () => {
-    // Payment details to pass to the success page
-    const transactionDetails = {
-      paymentMethod: 'bank',
-      amountPaid: 90,
-      accountInfo: '12345678',
-      userContact: 'jane.smith@example.com',
-    };
-
-    // Navigate to the SuccessPage and pass transaction details via state
-    navigate('/success', { state: transactionDetails });
-  };
-
   return (
     <div className="text-center text-white text-lg font-bold mt-4 bg-dB p-2 rounded-2xl shadow-lg">
       Time Left: <span className="text-red-600">{formatTime(timeLeft)}</span>
@@ -60,35 +45,49 @@ const BankTransfer = () => {
     navigate('/paymentoptions'); // Navigate back to payment options or reset flow
   };
 
+  const handlePaymentSuccess = () => {
+    // Payment details to pass to the success page
+    const transactionDetails = {
+      paymentMethod: 'bank',
+      amountPaid: 90,
+      accountInfo: '12345678',
+      userContact: 'jane.smith@example.com',
+    };
+
+    // Navigate to the SuccessPage and pass transaction details via state
+    navigate('/success', { state: transactionDetails });
+  };
+
   return (
-    <div className="flex flex-col justify-center items-center h-full p-6 rounded-lg bg-gray-50">
-      <div className="mb-6 text-center">
-        <h1 className="text-3xl font-bold mb-2">Bank Transfer</h1>
-        <p className="text-gray-700 mb-4">Please transfer £90 to the following account:</p>
-        <p className="font-mono text-lg mb-2">Account Number: 12345678</p>
-        <p className="font-mono text-lg mb-2">Sort Code: 12-34-56</p>
-        <p className="font-mono text-lg mb-2">IBAN: GB1234567890123456789012</p>
-        <p className="font-mono text-lg mb-4">BIC: GB1234567890123456</p>
-        <p className="text-gray-600 mb-2">
+    <div className="flex flex-col justify-center items-center h-full p-6 md:p-12 lg:p-16 bg-gray-50">
+      <div className="mb-6 text-center max-w-lg">
+        <h1 className="text-2xl md:text-3xl font-bold mb-2">Bank Transfer</h1>
+        <p className="text-gray-700 text-sm md:text-base mb-4">
+          Please transfer £90 to the following account:
+        </p>
+        <p className="font-mono text-lg md:text-xl mb-2">Account Number: 12345678</p>
+        <p className="font-mono text-lg md:text-xl mb-2">Sort Code: 12-34-56</p>
+        <p className="font-mono text-lg md:text-xl mb-2">IBAN: GB1234567890123456789012</p>
+        <p className="font-mono text-lg md:text-xl mb-2">BIC: GB1234567890123456</p>
+        <p className="text-gray-600 text-xs md:text-sm mb-2">
           Please use the reference "Invoice #123456" when making the payment.
         </p>
-        <p className="text-gray-600">
-          Once the payment is confirmed, we will update the status of your invoice.
+        <p className="text-gray-600 text-xs md:text-sm">
+          Once the payment is confirmed, we will update the status of your invoice. Thank you for your prompt payment.
         </p>
-        <p className="text-gray-600">Thank you for your prompt payment.</p>
       </div>
 
       {!isTimeout ? (
         <>
           <button
-        onClick={handlePaymentSuccess}
-        className="rounded-full py-2 px-4 bg-dB mb-8 text-white text-center hover:bg-pry transition duration-200"
-        >
-        Confirm Payment
-      </button>
+            onClick={handlePaymentSuccess}
+            className="rounded-full py-2 px-4 bg-dB text-white text-center hover:bg-pry transition duration-200 mb-4 w-full md:w-auto"
+          >
+            Confirm Payment
+          </button>
           <Link
             to={'/paymentoptions'}
-            className="rounded-full py-2 px-4 bg-dB text-white text-center hover:bg-pry transition duration-200"
+            className="rounded-full py-2 px-4 bg-dB text-white text-center hover:bg-pry transition duration-200 mb-8 w-full md:w-auto"
           >
             Cancel
           </Link>

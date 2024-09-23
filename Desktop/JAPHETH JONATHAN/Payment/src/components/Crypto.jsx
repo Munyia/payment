@@ -46,7 +46,7 @@ const Crypto = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-full p-6 rounded-lg bg-gray-50">
+    <div className="flex flex-col justify-center items-center min-h-screen p-6 px-6 bg-gray-50">
       <div className="mb-6 text-center">
         <h1 className="text-3xl font-bold mb-2">Crypto Payment</h1>
         <p className="text-gray-700 mb-4">Please transfer £90 to the following address:</p>
@@ -60,13 +60,13 @@ const Crypto = () => {
         <>
           <Link
             to={'/success'}
-            className="rounded-full py-2 px-4 bg-dB mb-8 text-white text-center hover:bg-pry transition duration-200"
+            className="rounded-full py-2 px-4 bg-dB mb-4 text-white text-center hover:bg-pry transition duration-200 w-full md:w-auto"
           >
             Confirm Payment
           </Link>
           <Link
             to={'/paymentoptions'}
-            className="rounded-full py-2 px-4 bg-dB text-white text-center hover:bg-pry transition duration-200"
+            className="rounded-full py-2 px-4 bg-dB text-white text-center hover:bg-pry transition duration-200 w-full md:w-auto"
           >
             Cancel
           </Link>

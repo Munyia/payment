@@ -37,45 +37,45 @@ function App() {
   ];
 
   return (
-    <div className='bg-black overflow-hidden h-screen flex'>
-    <div className=" bg-pry px-5 pt-[15%] justify-center m-auto text-center w-1/4 h-full">
-  <div className="w-full m-auto bg-pry text-center py-5 rounded-3xl dark:bg-gray-900">
-    <Carousel autoslide={true} autoslideinterval={5000}  showDots={false}>
-      {payment.map((payment) => (
-        <div
-          key={payment.id}
-          className="flex flex-col items-center justify-center"
-        >
-          <img
-            src={payment.image}
-            alt={`Customer ${payment.name}`}
-            className="rounded-lg mb-4 shadow-md" 
-          />
-          <p className="font-semibold text-white text-lg pb-10 text-but">
-            {payment.name}
-          </p>
-        </div>
-      ))}
-    </Carousel>
+    <div className='bg-black font-[verdana] flex flex-col md:flex-row overflow-auto'>
+  <div className="bg-pry px-5 pt-[15%] justify-center m-auto text-center w-full md:w-1/4">
+    <div className="w-full m-auto bg-pry text-center py-5 rounded-3xl dark:bg-gray-900">
+      <Carousel autoslide={true} autoslideinterval={5000} showDots={false}>
+        {payment.map((payment) => (
+          <div
+            key={payment.id}
+            className="flex flex-col items-center justify-center"
+          >
+            <img
+              src={payment.image}
+              alt={`Customer ${payment.name}`}
+              className="rounded-lg mb-4 shadow-md" 
+            />
+            <p className="font-semibold text-white text-lg pb-10 text-but">
+              {payment.name}
+            </p>
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  </div>
+
+  <div className='bg-white font-[verdana] w-full md:w-3/4 '>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Hero />} />
+        <Route path='/paymentoptions' element={<PaymentOptions />} />
+        <Route path='/banktransfer' element={<BankTransfer />} />
+        <Route path='/success' element={<Success />} />
+        <Route path='/pending' element={<Pending />} />
+        <Route path='/crypto' element={<Crypto />} />
+        <Route path='/cardpayment' element={<CardPayment />} />
+        <Route path='/transactiondetails' element={<TransactionDetails />} />
+      </Routes>
+    </BrowserRouter>
   </div>
 </div>
 
-      <div className='bg-white font-[verdana] w-3/4 h-full '>
-      <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Hero/>}/>
-        <Route path='/paymentoptions' element={<PaymentOptions/>}/>
-        <Route path='/banktransfer' element={<BankTransfer/>}/>
-        <Route path='/success' element={<Success/>}/>
-        <Route path='/pending' element={<Pending/>}/>
-        <Route path='/crypto' element={<Crypto/>}/>
-        <Route path='/cardpayment' element={<CardPayment/>}/>
-        <Route path='/transactiondetails' element={<TransactionDetails/>}/>
-      </Routes>
-      </BrowserRouter>
-      </div>
-
-    </div>   
     
   )
 }
